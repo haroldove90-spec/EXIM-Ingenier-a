@@ -1,0 +1,6 @@
+{
+  "name": "Exim Ingenieria",
+  "description": "Dashboard de operaciones y administración para Exim Ingeniería y Mantenimiento en Villahermosa, Tabasco.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
