@@ -78,77 +78,77 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
       </div>
 
       {/* Main KPI Grid */}
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
         {/* KPI 1: Tech Efficiency */}
-        <div className="glass-card glass-card-hover p-5">
+        <div className="glass-card glass-card-hover p-4 sm:p-5">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">Eficiencia Técnica</span>
-            <div className="rounded-lg bg-green-500/10 border border-green-500/20 p-2 text-green-600">
-              <CheckCircle2 className="h-5 w-5" />
+            <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-slate-500">Eficiencia Técnica</span>
+            <div className="rounded-lg bg-green-500/10 border border-green-500/20 p-1.5 sm:p-2 text-green-600">
+              <CheckCircle2 className="h-4 sm:h-5 w-4 sm:w-5" />
             </div>
           </div>
-          <div className="mt-4 flex items-baseline gap-2">
-            <span className="text-3xl font-bold text-gray-900">{techEfficiency}%</span>
-            <span className="text-xs font-semibold text-green-600">Servicios cerrados</span>
+          <div className="mt-3 sm:mt-4 flex flex-wrap items-baseline gap-1 sm:gap-2">
+            <span className="text-xl sm:text-3xl font-extrabold text-gray-900">{techEfficiency}%</span>
+            <span className="text-[10px] sm:text-xs font-semibold text-green-600">Servicios</span>
           </div>
-          <p className="mt-2 text-xs text-stone-500 font-medium">
-            {finishedOrders} de {totalOrders} órdenes completadas a tiempo
+          <p className="mt-1.5 sm:mt-2 text-[10px] sm:text-xs text-stone-500 font-medium">
+            {finishedOrders} de {totalOrders} completadas
           </p>
         </div>
 
         {/* KPI 2: Active Projects */}
         <button
           onClick={() => setActiveView("projects")}
-          className="text-left glass-card glass-card-hover p-5 cursor-pointer"
+          className="text-left glass-card glass-card-hover p-4 sm:p-5 cursor-pointer"
         >
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">Proyectos Activos</span>
-            <div className="rounded-lg bg-amber-500/10 border border-amber-500/20 p-2 text-amber-600">
-              <FolderOpen className="h-5 w-5" />
+            <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-slate-500">Proyectos Activos</span>
+            <div className="rounded-lg bg-amber-500/10 border border-amber-500/20 p-1.5 sm:p-2 text-amber-600">
+              <FolderOpen className="h-4 sm:h-5 w-4 sm:w-5" />
             </div>
           </div>
-          <div className="mt-4 flex items-baseline gap-2">
-            <span className="text-3xl font-bold text-gray-900">{activeProjectsCount}</span>
-            <span className="text-xs font-semibold text-stone-500">En desarrollo</span>
+          <div className="mt-3 sm:mt-4 flex flex-wrap items-baseline gap-1 sm:gap-2">
+            <span className="text-xl sm:text-3xl font-extrabold text-gray-900">{activeProjectsCount}</span>
+            <span className="text-[10px] sm:text-xs font-semibold text-stone-500">En desarrollo</span>
           </div>
-          <p className="mt-2 text-xs text-blue-600 font-bold flex items-center gap-1">
-            Ver cronograma Gantt <ArrowRight className="h-3 w-3" />
+          <p className="mt-1.5 sm:mt-2 text-[10px] sm:text-xs text-blue-600 font-bold flex items-center gap-0.5">
+            Cronograma <ArrowRight className="h-3 w-3" />
           </p>
         </button>
 
         {/* KPI 3: Preventive Alarms */}
         <button
           onClick={() => setActiveView("preventive")}
-          className="text-left glass-card glass-card-hover p-5 cursor-pointer"
+          className="text-left glass-card glass-card-hover p-4 sm:p-5 cursor-pointer"
         >
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">Mtos. Urgentes</span>
-            <div className="rounded-lg bg-rose-500/10 border border-rose-500/20 p-2 text-rose-600">
-              <AlertTriangle className="h-5 w-5" />
+            <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-slate-500">Mtos. Urgentes</span>
+            <div className="rounded-lg bg-rose-500/10 border border-rose-500/20 p-1.5 sm:p-2 text-rose-600">
+              <AlertTriangle className="h-4 sm:h-5 w-4 sm:w-5" />
             </div>
           </div>
-          <div className="mt-4 flex items-baseline gap-2">
-            <span className="text-3xl font-bold text-gray-900">{pendingPreventiveCount}</span>
-            <span className="text-xs font-semibold text-rose-600 font-mono">Pronto/Vencidos</span>
+          <div className="mt-3 sm:mt-4 flex flex-wrap items-baseline gap-1 sm:gap-2">
+            <span className="text-xl sm:text-3xl font-extrabold text-gray-900">{pendingPreventiveCount}</span>
+            <span className="text-[10px] sm:text-xs font-semibold text-rose-600 font-mono">Urgentes</span>
           </div>
-          <p className="mt-2 text-xs text-stone-500 font-medium">Pólizas de servicio preventivas por agendar</p>
+          <p className="mt-1.5 sm:mt-2 text-[10px] sm:text-xs text-stone-500 font-medium">Equipos por agendar</p>
         </button>
 
         {/* KPI 4: Net Profit */}
-        <div className="glass-card glass-card-hover p-5">
+        <div className="glass-card glass-card-hover p-4 sm:p-5">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">Flujo de Caja</span>
-            <div className="rounded-lg bg-blue-500/10 border border-blue-500/20 p-2 text-blue-600">
-              <TrendingUp className="h-5 w-5" />
+            <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-slate-500">Flujo de Caja</span>
+            <div className="rounded-lg bg-blue-500/10 border border-blue-500/20 p-1.5 sm:p-2 text-blue-600">
+              <TrendingUp className="h-4 sm:h-5 w-4 sm:w-5" />
             </div>
           </div>
-          <div className="mt-4 flex items-baseline gap-2">
-            <span className="text-2xl font-bold text-gray-900">
-              ${netBalance.toLocaleString("es-MX", { minimumFractionDigits: 2 })}
+          <div className="mt-3 sm:mt-4 flex flex-wrap items-baseline gap-1 sm:gap-2">
+            <span className="text-lg sm:text-2xl font-extrabold text-gray-900">
+              ${netBalance >= 100000 ? `${(netBalance / 1000).toFixed(0)}k` : netBalance.toLocaleString("es-MX", { maximumFractionDigits: 0 })}
             </span>
-            <span className="text-xs font-bold text-blue-600">MXN</span>
+            <span className="text-[10px] sm:text-xs font-bold text-blue-600">MXN</span>
           </div>
-          <p className="mt-2 text-xs text-stone-500 font-medium">Ingeso cobrado menos gastos de campo</p>
+          <p className="mt-1.5 sm:mt-2 text-[10px] sm:text-xs text-stone-500 font-medium">Gastos vs Ingresos</p>
         </div>
       </div>
 
