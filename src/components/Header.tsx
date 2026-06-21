@@ -34,11 +34,11 @@ export const Header: React.FC<HeaderProps> = ({
             referrerPolicy="no-referrer"
           />
           <div className="hidden flex-col sm:flex">
-            <span className="text-sm font-bold tracking-tight text-gray-900">
+            <span className="text-base font-bold tracking-tight text-slate-900">
               EXIM INGENIERÍA
             </span>
-            <div className="flex items-center gap-1 text-[10px] text-gray-500 font-semibold">
-              <MapPin className="h-3 w-3 text-red-500" />
+            <div className="flex items-center gap-1 text-xs text-slate-600 font-semibold">
+              <MapPin className="h-3.5 w-3.5 text-red-500" />
               <span>Villahermosa, Tabasco</span>
             </div>
           </div>
@@ -47,14 +47,14 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Active Tab indicator and user badge */}
       <div className="flex items-center gap-4">
-        <div className="hidden rounded-full bg-blue-500/10 border border-blue-500/20 backdrop-blur-xs px-3 py-1 text-xs font-bold text-blue-700 sm:inline-block">
+        <div className="hidden rounded-full bg-blue-500/10 border border-blue-500/20 backdrop-blur-xs px-3.5 py-1.5 text-sm font-bold text-blue-700 sm:inline-block">
           Módulo: {activeTab}
         </div>
         <div className="flex items-center gap-2 rounded-lg bg-white/40 backdrop-blur-xs px-3 py-1.5 border border-white/60 shadow-xs">
-          <div className="h-6 w-6 rounded-full bg-blue-600 flex items-center justify-center text-xs font-medium text-white shadow-xs">
-            <User className="h-3.5 w-3.5" />
+          <div className="h-7 w-7 rounded-full bg-blue-600 flex items-center justify-center text-xs font-medium text-white shadow-xs">
+            <User className="h-4 w-4" />
           </div>
-          <span className="text-xs font-bold text-gray-800 hidden sm:inline">
+          <span className="text-sm font-bold text-slate-800 hidden sm:inline">
             Admin EXIM
           </span>
         </div>

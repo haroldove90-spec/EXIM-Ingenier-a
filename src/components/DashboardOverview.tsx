@@ -156,52 +156,52 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         {/* Balance Card Block */}
         <div className="glass-card p-6 lg:col-span-2">
-          <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 font-sans">Balance Financiero Rápido</h2>
+          <h2 className="text-base sm:text-lg font-extrabold text-slate-900 uppercase tracking-wider mb-5 font-sans">Balance Financiero Rápido</h2>
           
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 mb-6">
-            <div className="rounded-xl bg-green-500/10 p-4 border border-green-500/15">
-              <span className="text-xs font-bold text-green-700 uppercase tracking-wide">Ingresos Cobrados</span>
-              <p className="mt-1 text-lg font-bold text-green-800 font-mono">
+            <div className="rounded-xl bg-green-500/10 p-5 border border-green-500/15">
+              <span className="text-xs sm:text-sm font-bold text-green-700 uppercase tracking-wide">Ingresos Cobrados</span>
+              <p className="mt-1.5 text-xl sm:text-2xl font-extrabold text-green-900 font-mono">
                 ${totalIncome.toLocaleString("es-MX")}
               </p>
             </div>
-            <div className="rounded-xl bg-amber-500/10 p-4 border border-amber-500/15">
-              <span className="text-xs font-bold text-slate-700 uppercase tracking-wide">Ingresos por Cobrar</span>
-              <p className="mt-1 text-lg font-bold text-amber-800 font-mono">
+            <div className="rounded-xl bg-amber-500/10 p-5 border border-amber-500/15">
+              <span className="text-xs sm:text-sm font-bold text-slate-700 uppercase tracking-wide">Ingresos por Cobrar</span>
+              <p className="mt-1.5 text-xl sm:text-2xl font-extrabold text-amber-900 font-mono">
                 ${pendingIncome.toLocaleString("es-MX")}
               </p>
             </div>
-            <div className="rounded-xl bg-rose-500/10 p-4 border border-rose-500/15">
-              <span className="text-xs font-bold text-rose-700 uppercase tracking-wide">Gastos de Campo</span>
-              <p className="mt-1 text-lg font-bold text-rose-800 font-mono">
+            <div className="rounded-xl bg-rose-500/10 p-5 border border-rose-500/15">
+              <span className="text-xs sm:text-sm font-bold text-rose-700 uppercase tracking-wide">Gastos de Campo</span>
+              <p className="mt-1.5 text-xl sm:text-2xl font-extrabold text-rose-900 font-mono">
                 ${totalExpense.toLocaleString("es-MX")}
               </p>
             </div>
           </div>
-
+ 
           {/* Visual Custom Chart for Income vs Expenses */}
           <div className="space-y-4">
-            <span className="text-xs font-semibold uppercase tracking-wider text-gray-400">Distribución de Recursos</span>
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-500">Distribución de Recursos</span>
             
             <div className="space-y-2">
-              <div className="flex items-center justify-between text-xs font-medium text-gray-500">
+              <div className="flex items-center justify-between text-xs sm:text-sm font-bold text-slate-700">
                 <span>Ingreso Cobrado ({Math.round(totalIncome > 0 ? (totalIncome / (totalIncome + totalExpense)) * 100 : 0)}%)</span>
                 <span>${totalIncome.toLocaleString("es-MX")}</span>
               </div>
-              <div className="h-3 w-full rounded-full bg-gray-100">
+              <div className="h-3 w-full rounded-full bg-slate-200/50">
                 <div
                   className="h-full rounded-full bg-emerald-500 transition-all duration-500"
                   style={{ width: `${totalIncome > 0 ? (totalIncome / (totalIncome + totalExpense)) * 100 : 0}%` }}
                 />
               </div>
             </div>
-
+ 
             <div className="space-y-2">
-              <div className="flex items-center justify-between text-xs font-medium text-gray-500">
+              <div className="flex items-center justify-between text-xs sm:text-sm font-bold text-slate-700">
                 <span>Gastos Operativos / Viáticos ({Math.round(totalIncome > 0 ? (totalExpense / (totalIncome + totalExpense)) * 100 : 0)}%)</span>
                 <span>${totalExpense.toLocaleString("es-MX")}</span>
               </div>
-              <div className="h-3 w-full rounded-full bg-gray-100">
+              <div className="h-3 w-full rounded-full bg-slate-200/50">
                 <div
                   className="h-full rounded-full bg-rose-500 transition-all duration-500"
                   style={{ width: `${totalIncome > 0 ? (totalExpense / (totalIncome + totalExpense)) * 100 : 0}%` }}
@@ -210,40 +210,40 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
             </div>
           </div>
         </div>
-
+ 
         {/* Technical Crew & Performance Card */}
         <div className="glass-card p-6 flex flex-col justify-between">
           <div>
-            <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 font-sans">Rendimiento de Servicios</h2>
-            <div className="space-y-3">
+            <h2 className="text-base sm:text-lg font-extrabold text-slate-900 uppercase tracking-wider mb-5 font-sans">Rendimiento de Servicios</h2>
+            <div className="space-y-3.5">
               {/* Stat list */}
-              <div className="flex justify-between items-center text-xs pb-2 border-b border-white/50">
+              <div className="flex justify-between items-center text-xs sm:text-sm pb-2.5 border-b border-white/50">
                 <div className="flex items-center gap-2">
                   <div className="h-2.5 w-2.5 rounded-full bg-green-500" />
-                  <span className="text-slate-700 font-medium">Mantenimiento Finalizado</span>
+                  <span className="text-slate-800 font-bold">Mantenimiento Finalizado</span>
                 </div>
-                <span className="font-bold text-gray-950">{orders.filter(o => o.status === "Finalizado").length}</span>
+                <span className="font-extrabold text-gray-950 font-mono">{orders.filter(o => o.status === "Finalizado").length}</span>
               </div>
-              <div className="flex justify-between items-center text-xs pb-2 border-b border-white/50">
+              <div className="flex justify-between items-center text-xs sm:text-sm pb-2.5 border-b border-white/50">
                 <div className="flex items-center gap-2">
                   <div className="h-2.5 w-2.5 rounded-full bg-blue-500" />
-                  <span className="text-slate-700 font-medium">Servicios en Campo Activos</span>
+                  <span className="text-slate-800 font-bold">Servicios en Campo Activos</span>
                 </div>
-                <span className="font-bold text-gray-950">{orders.filter(o => o.status === "En Proceso").length}</span>
+                <span className="font-extrabold text-gray-950 font-mono">{orders.filter(o => o.status === "En Proceso").length}</span>
               </div>
-              <div className="flex justify-between items-center text-xs pb-2 border-b border-white/50">
+              <div className="flex justify-between items-center text-xs sm:text-sm pb-2.5 border-b border-white/50">
                 <div className="flex items-center gap-2">
-                  <div className="h-2.5 w-2.5 rounded-full bg-yellow-500" />
-                  <span className="text-slate-700 font-medium">Pausados por Material</span>
+                  <div className="h-2.5 w-2.5 rounded-full bg-yellow-400" />
+                  <span className="text-slate-800 font-bold">Pausados por Material</span>
                 </div>
-                <span className="font-bold text-gray-950">{orders.filter(o => o.status === "Pausado por Material").length}</span>
+                <span className="font-extrabold text-gray-950 font-mono">{orders.filter(o => o.status === "Pausado por Material").length}</span>
               </div>
-              <div className="flex justify-between items-center text-xs pb-1">
+              <div className="flex justify-between items-center text-xs sm:text-sm pb-2">
                 <div className="flex items-center gap-2">
                   <div className="h-2.5 w-2.5 rounded-full bg-gray-400" />
-                  <span className="text-slate-700 font-medium">Órdenes Pendientes</span>
+                  <span className="text-slate-800 font-bold">Órdenes Pendientes</span>
                 </div>
-                <span className="font-bold text-gray-950">{orders.filter(o => o.status === "Pendiente").length}</span>
+                <span className="font-extrabold text-gray-950 font-mono">{orders.filter(o => o.status === "Pendiente").length}</span>
               </div>
             </div>
           </div>
@@ -262,29 +262,29 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
 
       {/* Rentabilidad de Proyectos */}
       <div className="glass-card p-6">
-        <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 font-sans">Rentabilidad por Proyecto</h2>
+        <h2 className="text-base sm:text-lg font-bold text-slate-900 uppercase tracking-wider mb-4 font-sans">Rentabilidad por Proyecto</h2>
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-sm text-gray-500">
-            <thead className="bg-gray-50 text-xs font-semibold uppercase tracking-wider text-gray-600">
+          <table className="w-full text-left text-sm sm:text-base text-gray-600">
+            <thead className="bg-slate-100 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-700">
               <tr>
-                <th className="px-4 py-3">Proyecto</th>
-                <th className="px-4 py-3 text-right">Presupuesto</th>
-                <th className="px-4 py-3 text-right">Gasto Real</th>
-                <th className="px-4 py-3 text-right">Utilidad Escrita</th>
-                <th className="px-4 py-3 text-right">Margen</th>
+                <th className="px-4 py-3.5">Proyecto</th>
+                <th className="px-4 py-3.5 text-right">Presupuesto</th>
+                <th className="px-4 py-3.5 text-right">Gasto Real</th>
+                <th className="px-4 py-3.5 text-right">Utilidad Escrita</th>
+                <th className="px-4 py-3.5 text-right">Margen</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
               {projectStats.map((proj, idx) => (
                 <tr key={idx} className="hover:bg-gray-50/50">
-                  <td className="px-4 py-3.5 font-medium text-gray-900 max-w-xs truncate">{proj.name}</td>
-                  <td className="px-4 py-3.5 text-right font-mono text-gray-700">${proj.budget.toLocaleString("es-MX")}</td>
-                  <td className="px-4 py-3.5 text-right font-mono text-gray-700">${proj.real.toLocaleString("es-MX")}</td>
-                  <td className="px-4 py-3.5 text-right font-mono font-medium text-green-600">
+                  <td className="px-4 py-4 font-bold text-slate-900 max-w-xs truncate">{proj.name}</td>
+                  <td className="px-4 py-4 text-right font-mono text-slate-800">${proj.budget.toLocaleString("es-MX")}</td>
+                  <td className="px-4 py-4 text-right font-mono text-slate-800">${proj.real.toLocaleString("es-MX")}</td>
+                  <td className="px-4 py-4 text-right font-mono font-bold text-green-600">
                     +${proj.profit.toLocaleString("es-MX")}
                   </td>
-                  <td className="px-4 py-3.5 text-right font-medium">
-                    <span className="inline-flex items-center rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-700">
+                  <td className="px-4 py-4 text-right">
+                    <span className="inline-flex items-center rounded-full bg-green-100/70 border border-green-500/20 px-2.5 py-1 text-xs sm:text-sm font-extrabold text-green-800">
                       {proj.margin}%
                     </span>
                   </td>

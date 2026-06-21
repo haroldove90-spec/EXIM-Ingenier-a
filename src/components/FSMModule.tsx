@@ -438,20 +438,20 @@ export const FSMModule: React.FC<FSMModuleProps> = ({
           {/* Table / List layout */}
           <div className="glass-card shadow-sm overflow-hidden">
             <div className="overflow-x-auto">
-              <table className="w-full text-left text-sm text-gray-500">
-                <thead className="bg-gray-50 text-xs font-semibold uppercase tracking-wider text-gray-600">
+              <table className="w-full text-left text-sm text-slate-600">
+                <thead className="bg-slate-100 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-700">
                   <tr>
-                    <th className="px-4 py-3">Código OS</th>
-                    <th className="px-4 py-3">Título / Detalle</th>
-                    <th className="px-4 py-3">Cliente</th>
-                    <th className="px-4 py-3">Estatus</th>
-                    <th className="px-4 py-3">Fecha</th>
+                    <th className="px-4 py-3.5">Código OS</th>
+                    <th className="px-4 py-3.5">Título / Detalle</th>
+                    <th className="px-4 py-3.5">Cliente</th>
+                    <th className="px-4 py-3.5">Estatus</th>
+                    <th className="px-4 py-3.5">Fecha</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-100">
                   {filteredOrders.length === 0 ? (
                     <tr>
-                      <td colSpan={5} className="p-8 text-center text-xs text-gray-400">
+                      <td colSpan={5} className="p-8 text-center text-sm text-slate-400">
                         No se encontraron órdenes de servicio.
                       </td>
                     </tr>
@@ -461,34 +461,34 @@ export const FSMModule: React.FC<FSMModuleProps> = ({
                         key={o.id}
                         onClick={() => setSelectedOrder(o)}
                         className={`cursor-pointer transition-colors hover:bg-slate-50/50 ${
-                          selectedOrder?.id === o.id ? "bg-blue-50/30 font-medium text-gray-900" : ""
+                          selectedOrder?.id === o.id ? "bg-blue-50/40 font-semibold text-slate-950" : ""
                         }`}
                       >
-                        <td className="px-4 py-4 font-mono font-bold text-blue-600">{o.id}</td>
+                        <td className="px-4 py-4 font-mono font-extrabold text-blue-600">{o.id}</td>
                         <td className="px-4 py-4">
-                          <p className="text-xs font-semibold text-gray-900 line-clamp-1">{o.title}</p>
-                          <div className="flex items-center gap-1.5 mt-1 text-[10px] text-gray-400">
-                            <User className="h-3 w-3" />
+                          <p className="text-sm font-bold text-slate-900 line-clamp-1">{o.title}</p>
+                          <div className="flex items-center gap-1.5 mt-1 text-xs text-slate-500 font-medium">
+                            <User className="h-3.5 w-3.5 text-slate-400" />
                             <span>{o.assignedCrew.join(", ")}</span>
                           </div>
                         </td>
-                        <td className="px-4 py-4 text-xs max-w-xs truncate">{o.clientName}</td>
+                        <td className="px-4 py-4 text-sm font-semibold text-slate-700 max-w-xs truncate">{o.clientName}</td>
                         <td className="px-4 py-4 text-xs">
                           <span
-                            className={`inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-semibold ${
+                            className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-bold border ${
                               o.status === "Finalizado"
-                                ? "bg-green-50 text-green-700"
+                                ? "bg-green-100 text-green-700 border-green-200"
                                 : o.status === "En Proceso"
-                                ? "bg-blue-50 text-blue-700"
+                                ? "bg-blue-100 text-blue-700 border-blue-200"
                                 : o.status === "Pausado por Material"
-                                ? "bg-amber-100 text-amber-800"
-                                : "bg-gray-100 text-gray-600"
+                                ? "bg-amber-100 text-amber-800 border-amber-200"
+                                : "bg-gray-100 text-gray-700 border-gray-200"
                             }`}
                           >
                             {o.status}
                           </span>
                         </td>
-                        <td className="px-4 py-4 text-xs font-mono">{o.date}</td>
+                        <td className="px-4 py-4 text-sm font-mono text-slate-500">{o.date}</td>
                       </tr>
                     ))
                   )}

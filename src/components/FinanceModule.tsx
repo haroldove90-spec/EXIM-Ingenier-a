@@ -240,36 +240,36 @@ export const FinanceModule: React.FC<FinanceProps> = ({
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         <div className="glass-card glass-card-hover p-5 flex items-center justify-between">
           <div>
-            <span className="text-[10px] text-slate-500 font-extrabold block uppercase tracking-wider">Anticipos e Ingresos Cobrados</span>
-            <span className="text-xl font-extrabold text-emerald-600 font-mono mt-1 block">
+            <span className="text-xs sm:text-sm text-slate-600 font-extrabold block uppercase tracking-wider">Anticipos e Ingresos Cobrados</span>
+            <span className="text-2xl font-extrabold text-emerald-600 font-mono mt-1.5 block">
               ${collectedIncome.toLocaleString("es-MX", { minimumFractionDigits: 2 })}
             </span>
           </div>
-          <div className="rounded-lg bg-green-500/10 border border-green-500/25 p-3 text-green-600">
+          <div className="rounded-lg bg-green-500/10 border border-green-500/25 p-3 text-green-600 font-bold">
             <ArrowDownLeft className="h-6 w-6" />
           </div>
         </div>
 
         <div className="glass-card glass-card-hover p-5 flex items-center justify-between">
           <div>
-            <span className="text-[10px] text-slate-500 font-extrabold block uppercase tracking-wider">Cuentas por Cobrar (cxC)</span>
-            <span className="text-xl font-extrabold text-amber-600 font-mono mt-1 block">
+            <span className="text-xs sm:text-sm text-slate-600 font-extrabold block uppercase tracking-wider">Cuentas por Cobrar (cxC)</span>
+            <span className="text-2xl font-extrabold text-amber-600 font-mono mt-1.5 block">
               ${outstandingReceivable.toLocaleString("es-MX", { minimumFractionDigits: 2 })}
             </span>
           </div>
-          <div className="rounded-lg bg-amber-500/10 border border-amber-500/25 p-3 text-amber-600">
+          <div className="rounded-lg bg-amber-500/10 border border-amber-500/25 p-3 text-amber-600 font-bold">
             <AlertTriangle className="h-6 w-6 animate-pulse-slow" />
           </div>
         </div>
 
         <div className="glass-card glass-card-hover p-5 flex items-center justify-between">
           <div>
-            <span className="text-[10px] text-slate-500 font-extrabold block uppercase tracking-wider">Egresos / Gastos Operativos de Cuadrilla</span>
-            <span className="text-xl font-extrabold text-rose-600 font-mono mt-1 block">
+            <span className="text-xs sm:text-sm text-slate-600 font-extrabold block uppercase tracking-wider">Egresos / Gastos Operativos de Cuadrilla</span>
+            <span className="text-2xl font-extrabold text-rose-600 font-mono mt-1.5 block">
               ${companyExpenses.toLocaleString("es-MX", { minimumFractionDigits: 2 })}
             </span>
           </div>
-          <div className="rounded-lg bg-rose-500/10 border border-rose-500/25 p-3 text-rose-600">
+          <div className="rounded-lg bg-rose-500/10 border border-rose-500/25 p-3 text-rose-600 font-bold">
             <ArrowUpRight className="h-6 w-6" />
           </div>
         </div>
@@ -279,7 +279,7 @@ export const FinanceModule: React.FC<FinanceProps> = ({
       <div className="flex border-b border-gray-100">
         <button
           onClick={() => setActiveTabTab("all")}
-          className={`px-4 py-2.5 text-xs font-bold -mb-px flex items-center gap-1.5 cursor-pointer ${
+          className={`px-4 py-3 text-sm font-bold -mb-px flex items-center gap-1.5 cursor-pointer ${
             activeTab === "all"
               ? "border-b-2 border-indigo-600 text-indigo-600 font-extrabold"
               : "text-gray-500 hover:text-gray-900"
@@ -289,7 +289,7 @@ export const FinanceModule: React.FC<FinanceProps> = ({
         </button>
         <button
           onClick={() => setActiveTabTab("cxc")}
-          className={`px-4 py-2.5 text-xs font-bold -mb-px flex items-center gap-1.5 cursor-pointer ${
+          className={`px-4 py-3 text-sm font-bold -mb-px flex items-center gap-1.5 cursor-pointer ${
             activeTab === "cxc"
               ? "border-b-2 border-indigo-600 text-indigo-600 font-extrabold"
               : "text-gray-500 hover:text-gray-900"
@@ -299,7 +299,7 @@ export const FinanceModule: React.FC<FinanceProps> = ({
         </button>
         <button
           onClick={() => setActiveTabTab("expenses")}
-          className={`px-4 py-2.5 text-xs font-bold -mb-px flex items-center gap-1.5 cursor-pointer ${
+          className={`px-4 py-3 text-sm font-bold -mb-px flex items-center gap-1.5 cursor-pointer ${
             activeTab === "expenses"
               ? "border-b-2 border-indigo-600 text-indigo-600 font-extrabold"
               : "text-gray-500 hover:text-gray-900"
@@ -312,28 +312,28 @@ export const FinanceModule: React.FC<FinanceProps> = ({
       {/* LEDGER TABULATION LISTING */}
       <div className="glass-card shadow-sm overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs">
-            <thead className="bg-gray-50 font-bold uppercase text-gray-600">
+          <table className="w-full text-left text-sm">
+            <thead className="bg-slate-100 font-extrabold uppercase text-slate-700 tracking-wider text-xs sm:text-sm">
               <tr>
-                <th className="px-4 py-3">ID Movimiento</th>
-                <th className="px-4 py-3">Tipo</th>
-                <th className="px-4 py-3 text-right">Importe</th>
-                <th className="px-4 py-3">Asociado / Proyecto</th>
-                <th className="px-4 py-3">Descripción</th>
-                <th className="px-4 py-3">Fecha</th>
+                <th className="px-4 py-3.5">ID Movimiento</th>
+                <th className="px-4 py-3.5">Tipo</th>
+                <th className="px-4 py-3.5 text-right">Importe</th>
+                <th className="px-4 py-3.5">Asociado / Proyecto</th>
+                <th className="px-4 py-3.5">Descripción</th>
+                <th className="px-4 py-3.5">Fecha</th>
                 
                 {activeTab === "cxc" ? (
                   <>
-                    <th className="px-4 py-3">Vencimiento</th>
-                    <th className="px-4 py-3">Plazo</th>
-                    <th className="px-4 py-3 text-center">Gestión</th>
+                    <th className="px-4 py-3.5">Vencimiento</th>
+                    <th className="px-4 py-3.5">Plazo</th>
+                    <th className="px-4 py-3.5 text-center">Gestión</th>
                   </>
                 ) : (
-                  <th className="px-4 py-3">Estatus</th>
+                  <th className="px-4 py-3.5">Estatus</th>
                 )}
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-100 font-medium text-gray-700">
+            <tbody className="divide-y divide-gray-100 font-medium text-slate-800">
               {filteredRecords.length === 0 ? (
                 <tr>
                   <td colSpan={9} className="p-8 text-center text-gray-450 font-sans">No se encontraron cobros o gastos registrados.</td>
@@ -346,36 +346,36 @@ export const FinanceModule: React.FC<FinanceProps> = ({
                       <td className="px-4 py-4 font-mono font-bold text-indigo-600">{fin.id}</td>
                       <td className="px-4 py-4">
                         <span
-                          className={`inline-flex rounded px-1.5 py-0.2 font-sans font-bold text-[9px] ${
+                          className={`inline-flex rounded px-2 py-0.5 font-sans font-bold text-xs ${
                             fin.type === "Gasto Operativo"
-                              ? "bg-rose-50 text-rose-700"
+                              ? "bg-rose-100/70 text-rose-700 border border-rose-200"
                               : fin.type === "Anticipo"
-                              ? "bg-emerald-50 text-emerald-700"
-                              : "bg-blue-50 text-blue-700"
+                              ? "bg-emerald-100/70 text-emerald-700 border border-emerald-200"
+                              : "bg-blue-100/70 text-blue-700 border border-blue-200"
                           }`}
                         >
                           {fin.type} {fin.subType ? `(${fin.subType})` : ""}
                         </span>
                       </td>
-                      <td className="px-4 py-4 text-right font-mono font-bold text-gray-950">
+                      <td className="px-4 py-4 text-right font-mono font-bold text-slate-900">
                         ${fin.amount.toLocaleString("es-MX", { minimumFractionDigits: 2 })}
                       </td>
-                      <td className="px-4 py-4 max-w-xs truncate text-stone-700 font-bold">{fin.associatedWith}</td>
-                      <td className="px-4 py-4 font-medium text-gray-600 max-w-[200px] truncate">{fin.description}</td>
-                      <td className="px-4 py-4 font-mono text-gray-400">{fin.date}</td>
+                      <td className="px-4 py-4 max-w-xs truncate text-stone-800 font-bold">{fin.associatedWith}</td>
+                      <td className="px-4 py-4 font-bold text-slate-800 max-w-[200px] truncate">{fin.description}</td>
+                      <td className="px-4 py-4 font-mono text-slate-500">{fin.date}</td>
 
                       {activeTab === "cxc" ? (
                         <>
                           <td className="px-4 py-4 font-mono font-bold text-rose-700">{fin.dueDate}</td>
                           <td className="px-4 py-4">
-                            <span className="rounded bg-yellow-50 px-1.5 py-0.2 text-[10px] font-bold text-yellow-800">
+                            <span className="rounded bg-yellow-100 font-bold text-xs text-yellow-850 px-2 py-0.5 border border-yellow-200">
                               {fin.creditTerms} Días d/c
                             </span>
                           </td>
                           <td className="px-4 py-4 text-center">
                             <button
                               onClick={() => handleMarkAsCollected(fin.id)}
-                              className="rounded bg-slate-900 border border-slate-750 font-bold text-[9px] text-white px-2 py-1 hover:bg-slate-800"
+                              className="rounded bg-slate-900 border border-slate-750 font-bold text-xs text-white px-2.5 py-1 hover:bg-slate-800 cursor-pointer transition-all"
                             >
                               Registrar Pago Recibido
                             </button>
@@ -384,10 +384,10 @@ export const FinanceModule: React.FC<FinanceProps> = ({
                       ) : (
                         <td className="px-4 py-4">
                           <span
-                            className={`inline-flex items-center rounded-full px-2 py-0.5 text-[9px] font-bold uppercase ${
+                            className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-bold uppercase border ${
                               fin.status === "Cobrado" || fin.status === "Pagado"
-                                ? "bg-green-50 text-green-700"
-                                : "bg-yellow-50 text-yellow-700"
+                                ? "bg-green-100/70 border-green-200 text-green-700"
+                                : "bg-yellow-100/70 border-yellow-250 text-yellow-700"
                             }`}
                           >
                             {fin.status}

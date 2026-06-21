@@ -69,7 +69,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       setOpen(false);
                     }
                   }}
-                  className={`group flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-xs font-bold uppercase tracking-wider transition-all ${
+                  className={`group flex w-full items-center gap-3 rounded-lg px-3.5 py-3 text-sm font-bold transition-all ${
                     isActive
                       ? "bg-white/60 text-blue-700 shadow-xs border-l-4 border-blue-600"
                       : "text-slate-600 hover:bg-white/40 hover:text-slate-900"
@@ -89,8 +89,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
         {/* Sidebar Footer */}
         <div className={`p-4 border-t border-slate-200/40 ${!open && "lg:hidden"}`}>
           <div className="bg-white/40 rounded-xl p-3 border border-white/60 shadow-xs">
-            <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1.5">Villahermosa, Tab</p>
-            <p className="text-[10px] text-slate-600 leading-normal font-medium">Sistema central de ingeniería y climatización.</p>
+            <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1.5">Villahermosa, Tab</p>
+            <p className="text-xs text-slate-700 leading-normal font-semibold">Sistema central de ingeniería y climatización.</p>
           </div>
         </div>
       </aside>

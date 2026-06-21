@@ -273,12 +273,12 @@ export const PreventiveModule: React.FC<PreventiveProps> = ({
           </div>
         </div>
       )}
-
+      
       {/* Admin Actionable Alerts Section of upcoming dates */}
       {urgentPlans.length > 0 && (
-        <div className="rounded-xl border border-rose-100 bg-rose-50/40 p-4 space-y-3">
-          <div className="flex items-center gap-2 text-xs font-bold text-rose-800">
-            <AlertTriangle className="h-5 w-5 text-rose-500 shrink-0" />
+        <div className="rounded-xl border border-rose-100 bg-rose-50/40 p-4 space-y-3.5">
+          <div className="flex items-center gap-2 text-sm font-extrabold text-rose-900 border-b border-rose-100/50 pb-2">
+            <AlertTriangle className="h-5.5 w-5.5 text-rose-500 shrink-0" />
             <span>Alertas del Administrador: Servicios Preventivos Próximos o Vencidos</span>
           </div>
           
@@ -286,17 +286,17 @@ export const PreventiveModule: React.FC<PreventiveProps> = ({
             {urgentPlans.map((plan) => (
               <div
                 key={plan.id}
-                className="rounded-lg bg-white p-3 border border-rose-100 flex items-center justify-between text-xs hover:border-rose-300"
+                className="rounded-lg bg-white p-3.5 border border-rose-100 flex items-center justify-between text-xs hover:border-rose-300 shadow-xs"
               >
                 <div>
-                  <span className="font-mono text-[9px] font-bold text-rose-600">{plan.id} ({plan.status})</span>
-                  <p className="font-bold text-gray-900 mt-0.5">{plan.equipmentName}</p>
-                  <p className="text-[10px] text-gray-400 font-medium truncate max-w-xs">{plan.clientName}</p>
-                  <p className="text-[10px] text-rose-700 font-semibold mt-1">Próxima Visita: {plan.nextServiceDate}</p>
+                  <span className="font-mono text-xs font-bold text-rose-600">{plan.id} ({plan.status})</span>
+                  <p className="font-extrabold text-slate-900 mt-1 text-sm">{plan.equipmentName}</p>
+                  <p className="text-xs text-slate-500 font-bold truncate max-w-xs">{plan.clientName}</p>
+                  <p className="text-xs text-rose-800 font-extrabold mt-1">Próxima Visita: {plan.nextServiceDate}</p>
                 </div>
                 <button
                   onClick={() => handleScheduleMaintenanceVisits(plan)}
-                  className="rounded-lg bg-slate-900 px-2.5 py-1.5 text-[10px] font-bold text-white hover:bg-slate-800 transition-colors"
+                  className="rounded-lg bg-slate-900 px-3.5 py-2 text-xs font-extrabold text-white hover:bg-slate-800 transition-colors cursor-pointer shadow-xs"
                 >
                   Agendar Visita
                 </button>
@@ -310,7 +310,7 @@ export const PreventiveModule: React.FC<PreventiveProps> = ({
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         {/* Left Hand: Plans catalog list */}
         <div className="space-y-3.5 lg:col-span-1">
-          <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block">Equipamiento Bajo Póliza</span>
+          <span className="text-sm font-bold text-slate-500 uppercase tracking-wider block">Equipamiento Bajo Póliza</span>
           <div className="space-y-2.5">
             {plans.map((p) => (
               <button
@@ -318,24 +318,24 @@ export const PreventiveModule: React.FC<PreventiveProps> = ({
                 onClick={() => setSelectedPlan(p)}
                 className={`w-full text-left rounded-xl border p-4 transition-all ${
                   selectedPlan?.id === p.id
-                    ? "border-rose-400 bg-rose-50/20 shadow-xs"
+                    ? "border-rose-450 bg-rose-50/20 shadow-xs"
                     : "border-gray-100 bg-white hover:border-gray-200"
                 }`}
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs font-bold text-gray-500">{p.id}</span>
-                  <span className="text-[9px] font-extrabold bg-rose-50 text-rose-700 rounded-full px-2 py-0.2">
+                  <span className="font-mono text-xs font-bold text-slate-500">{p.id}</span>
+                  <span className="text-xs font-extrabold bg-rose-100 text-rose-700 border border-rose-150 rounded px-2 py-0.5">
                     {p.policyCode}
                   </span>
                 </div>
 
-                <h3 className="text-xs font-bold text-gray-900 mt-2 line-clamp-2">{p.equipmentName}</h3>
-                <p className="text-[11px] text-gray-400 mt-0.5 font-medium truncate">{p.clientName}</p>
+                <h3 className="text-sm font-bold text-slate-900 mt-2 line-clamp-2">{p.equipmentName}</h3>
+                <p className="text-xs text-slate-500 mt-0.5 font-bold truncate">{p.clientName}</p>
 
-                <div className="mt-3 flex items-center justify-between border-t border-gray-50 pt-2 text-[10px] text-gray-400">
+                <div className="mt-3 flex items-center justify-between border-t border-gray-100 pt-2 text-xs text-slate-600 font-semibold font-sans">
                   <span>Ciclo: {p.frequencyMonths} meses</span>
                   <span
-                    className={`font-semibold ${
+                    className={`font-extrabold ${
                       p.status === "Al Corriente"
                         ? "text-emerald-600"
                         : p.status === "Vencido"
@@ -359,19 +359,19 @@ export const PreventiveModule: React.FC<PreventiveProps> = ({
               <div className="flex flex-col justify-between border-b border-gray-50 pb-4 gap-3 sm:flex-row sm:items-center">
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="font-mono text-xs font-bold text-rose-600">{selectedPlan.id}</span>
+                    <span className="font-mono text-sm font-bold text-rose-600">{selectedPlan.id}</span>
                     <ShieldCheck className="h-4 w-4 text-emerald-500" />
-                    <span className="text-[10px] text-emerald-600 bg-emerald-50 rounded px-2 py-0.2 font-bold uppercase">
+                    <span className="text-xs text-emerald-700 bg-emerald-100 border border-emerald-200 rounded px-2.5 py-0.5 font-bold uppercase">
                       Póliza Vigente
                     </span>
                   </div>
-                  <h2 className="text-sm font-bold text-gray-900 mt-1">{selectedPlan.equipmentName}</h2>
-                  <p className="text-xs text-gray-400 font-medium">{selectedPlan.clientName}</p>
+                  <h2 className="text-base sm:text-lg font-extrabold text-slate-900 mt-1">{selectedPlan.equipmentName}</h2>
+                  <p className="text-sm text-slate-550 font-bold">{selectedPlan.clientName}</p>
                 </div>
 
                 <div className="text-right">
-                  <span className="text-[10px] text-gray-400 block font-semibold uppercase">Rutinas de Servicio</span>
-                  <span className="text-xs font-extrabold text-gray-800">Cada {selectedPlan.frequencyMonths} Meses</span>
+                  <span className="text-xs text-slate-400 block font-bold uppercase">Rutinas de Servicio</span>
+                  <span className="text-sm font-extrabold text-slate-800">Cada {selectedPlan.frequencyMonths} Meses</span>
                 </div>
               </div>
 

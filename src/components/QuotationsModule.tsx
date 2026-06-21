@@ -440,28 +440,28 @@ export const QuotationsModule: React.FC<QuotationsProps> = ({
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-xs font-bold text-blue-600">{q.id}</span>
+                    <span className="font-mono text-sm font-extrabold text-blue-600">{q.id}</span>
                     <span
-                      className={`text-[9px] font-extrabold px-2 py-0.5 rounded-full uppercase ${
+                      className={`text-xs font-bold px-2.5 py-0.5 rounded-full uppercase ${
                         q.status === "Aprobada"
-                          ? "bg-green-50 text-green-700"
+                          ? "bg-green-100 text-green-700 border border-green-200"
                           : q.status === "Revision" || q.status === "Revisión"
-                          ? "bg-amber-50 text-amber-700"
-                          : "bg-gray-100 text-gray-500"
+                          ? "bg-amber-100 text-amber-700 border border-amber-200"
+                          : "bg-slate-105 text-slate-600 border border-slate-200"
                       }`}
                     >
                       {q.status}
                     </span>
                   </div>
 
-                  <h3 className="text-xs font-bold text-gray-900 mt-2 line-clamp-1">{q.clientName}</h3>
-                  <div className="mt-2.5 flex items-center justify-between text-xs text-gray-400 font-semibold font-mono">
+                  <h3 className="text-sm font-bold text-slate-900 mt-2 line-clamp-1">{q.clientName}</h3>
+                  <div className="mt-2.5 flex items-center justify-between text-sm text-slate-700 font-extrabold font-mono">
                     <span>${q.total.toLocaleString("es-MX")} MXN</span>
                   </div>
 
                   {isNearExpiry && q.status !== "Aprobada" && (
-                    <div className="mt-2 flex items-center gap-1 text-[9px] text-amber-600 font-bold bg-amber-50 rounded px-1.5 py-0.5">
-                      <AlertTriangle className="h-3 w-3 shrink-0 text-amber-500" />
+                    <div className="mt-2 flex items-center gap-1 text-xs text-amber-750 font-bold bg-amber-50 rounded px-2 py-0.5 border border-amber-200">
+                      <AlertTriangle className="h-3.5 w-3.5 shrink-0 text-amber-500" />
                       <span>Volatilidad de costo: Próxima a expirar</span>
                     </div>
                   )}
@@ -478,16 +478,16 @@ export const QuotationsModule: React.FC<QuotationsProps> = ({
               {/* Quote details head */}
               <div className="flex flex-col justify-between border-b border-gray-50 pb-4 gap-3 sm:flex-row sm:items-center">
                 <div>
-                  <span className="text-xs font-bold text-indigo-600 font-mono">Folio Oficial: {selectedQuote.id}</span>
-                  <p className="text-sm font-bold text-gray-900 mt-0.5">{selectedQuote.clientName}</p>
-                  <span className="text-[10px] text-gray-400 font-medium">Creado: {selectedQuote.dateCreated}</span>
+                  <span className="text-sm font-bold text-indigo-600 font-mono">Folio Oficial: {selectedQuote.id}</span>
+                  <p className="text-lg font-bold text-slate-900 mt-0.5">{selectedQuote.clientName}</p>
+                  <span className="text-xs text-slate-500 font-bold">Creado: {selectedQuote.dateCreated}</span>
                 </div>
 
                 <div className="flex items-center gap-2">
                   <select
                     value={selectedQuote.status}
                     onChange={(e) => handleUpdateQuoteStatus(selectedQuote.id, e.target.value as Quotation["status"])}
-                    className="rounded-lg border border-gray-200 bg-slate-50 p-1.5 text-xs font-bold focus:outline-none"
+                    className="rounded-lg border border-slate-300 bg-slate-50 p-2 text-sm font-extrabold focus:outline-none"
                   >
                     <option value="Enviada">Enviada al Cliente</option>
                     <option value="Revisión">En Revisión técnica</option>
@@ -498,11 +498,11 @@ export const QuotationsModule: React.FC<QuotationsProps> = ({
               </div>
 
               {/* Alert de vigencia y volatilidad */}
-              <div className="rounded-xl border border-amber-100 bg-amber-50/50 p-4 flex gap-3 text-xs text-amber-800">
-                <AlertTriangle className="h-5 w-5 text-amber-500 shrink-0" />
+              <div className="rounded-xl border border-amber-200 bg-amber-50/50 p-4.5 flex gap-3.5 text-sm text-amber-800">
+                <AlertTriangle className="h-6 w-6 text-amber-500 shrink-0" />
                 <div>
                   <span className="font-bold">Advertencia de Caducidad de Precios</span>
-                  <p className="mt-0.5 text-[11px] text-amber-700">
+                  <p className="mt-0.5 text-xs text-amber-700 leading-relaxed">
                     Vigente hasta el <strong className="font-mono">{selectedQuote.validityDate}</strong>. Debido a fluctuaciones drásticas en cobre, cobre galvanizado y consumibles de climatización en Villahermosa, se recomienda no autorizar conversiones pasada esta fecha sin re-cotizar.
                   </p>
                 </div>
@@ -510,27 +510,27 @@ export const QuotationsModule: React.FC<QuotationsProps> = ({
 
               {/* Quote Concepts Table */}
               <div>
-                <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-2">Presupuesto Desglosado</span>
-                <div className="overflow-hidden rounded-lg border border-gray-100">
-                  <table className="w-full text-left text-xs">
-                    <thead className="bg-gray-50 font-semibold text-gray-600 uppercase">
+                <span className="text-sm font-bold text-slate-500 uppercase tracking-wider block mb-2.5">Presupuesto Desglosado</span>
+                <div className="overflow-hidden rounded-lg border border-slate-200">
+                  <table className="w-full text-left text-sm text-slate-600">
+                    <thead className="bg-slate-100 font-bold text-slate-700 uppercase">
                       <tr>
-                        <th className="px-3 py-2.5">Concepto / Partida</th>
-                        <th className="px-3 py-2.5 text-right">Cant</th>
-                        <th className="px-3 py-2.5 text-right">Unitario</th>
-                        <th className="px-3 py-2.5 text-right">Total</th>
-                        <th className="px-3 py-2.5">Insumo</th>
+                        <th className="px-3.5 py-3">Concepto / Partida</th>
+                        <th className="px-3.5 py-3 text-right">Cant</th>
+                        <th className="px-3.5 py-3 text-right">Unitario</th>
+                        <th className="px-3.5 py-3 text-right">Total</th>
+                        <th className="px-3.5 py-3">Insumo</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-gray-100 font-medium text-gray-700">
+                    <tbody className="divide-y divide-gray-100 font-medium text-slate-700">
                       {selectedQuote.concepts.map((concept) => (
-                        <tr key={concept.id} className="hover:bg-slate-50/40">
-                          <td className="px-3 py-3 font-semibold text-gray-900">{concept.description}</td>
-                          <td className="px-3 py-3 text-right font-mono">{concept.qty}</td>
-                          <td className="px-3 py-3 text-right font-mono">${concept.price.toLocaleString("es-MX")}</td>
-                          <td className="px-3 py-3 text-right font-mono font-bold">${(concept.qty * concept.price).toLocaleString("es-MX")}</td>
-                          <td className="px-3 py-3 pl-4">
-                            <span className="text-[10px] rounded px-1.5 py-0.2 bg-slate-100 text-slate-700 font-semibold">
+                        <tr key={concept.id} className="hover:bg-slate-50/40 text-sm">
+                          <td className="px-3.5 py-3.5 font-bold text-slate-900">{concept.description}</td>
+                          <td className="px-3.5 py-3.5 text-right font-mono text-slate-800">{concept.qty}</td>
+                          <td className="px-3.5 py-3.5 text-right font-mono text-slate-800">${concept.price.toLocaleString("es-MX")}</td>
+                          <td className="px-3.5 py-3.5 text-right font-mono font-extrabold text-slate-955">${(concept.qty * concept.price).toLocaleString("es-MX")}</td>
+                          <td className="px-3.5 py-3.5 pl-4">
+                            <span className="text-xs rounded-full px-2 py-0.5 bg-slate-100 text-slate-700 font-extrabold border border-slate-200">
                               {concept.category}
                             </span>
                           </td>
@@ -542,32 +542,32 @@ export const QuotationsModule: React.FC<QuotationsProps> = ({
               </div>
 
               {/* Category sums split */}
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-4 font-mono text-xs">
-                <div className="rounded-lg bg-gray-50 p-3 text-center border border-gray-100">
-                  <span className="text-[10px] text-gray-400 block uppercase font-sans font-semibold">Materiales</span>
-                  <span className="text-gray-800 font-bold">${selectedQuote.costMaterials.toLocaleString("es-MX")}</span>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-4 font-mono text-sm">
+                <div className="rounded-lg bg-slate-50 p-3.5 text-center border border-slate-200">
+                  <span className="text-xs text-slate-505 block uppercase font-sans font-extrabold mb-1">Materiales</span>
+                  <span className="text-slate-800 font-extrabold text-sm sm:text-base">${selectedQuote.costMaterials.toLocaleString("es-MX")}</span>
                 </div>
-                <div className="rounded-lg bg-gray-50 p-3 text-center border border-gray-100">
-                  <span className="text-[10px] text-gray-400 block uppercase font-sans font-semibold">Mano de Obra</span>
-                  <span className="text-gray-800 font-bold">${selectedQuote.costLabor.toLocaleString("es-MX")}</span>
+                <div className="rounded-lg bg-slate-50 p-3.5 text-center border border-slate-200">
+                  <span className="text-xs text-slate-505 block uppercase font-sans font-extrabold mb-1">Mano de Obra</span>
+                  <span className="text-slate-800 font-extrabold text-sm sm:text-base">${selectedQuote.costLabor.toLocaleString("es-MX")}</span>
                 </div>
-                <div className="rounded-lg bg-gray-50 p-3 text-center border border-gray-100">
-                  <span className="text-[10px] text-gray-400 block uppercase font-sans font-semibold">Viáticos / Campo</span>
-                  <span className="text-gray-800 font-bold">${selectedQuote.costTravel.toLocaleString("es-MX")}</span>
+                <div className="rounded-lg bg-slate-50 p-3.5 text-center border border-slate-200">
+                  <span className="text-xs text-slate-505 block uppercase font-sans font-extrabold mb-1">Viáticos / Campo</span>
+                  <span className="text-slate-800 font-extrabold text-sm sm:text-base">${selectedQuote.costTravel.toLocaleString("es-MX")}</span>
                 </div>
-                <div className="rounded-lg bg-slate-900 p-3 text-center text-white">
-                  <span className="text-[10px] text-slate-300 block uppercase font-sans font-semibold">Importe Total</span>
-                  <span className="text-sm font-extrabold">${selectedQuote.total.toLocaleString("es-MX")}</span>
+                <div className="rounded-lg bg-slate-900 p-3.5 text-center text-white border border-slate-805 shadow-sm">
+                  <span className="text-xs text-slate-300 block uppercase font-sans font-extrabold mb-1">Importe Total</span>
+                  <span className="text-base sm:text-lg font-extrabold">${selectedQuote.total.toLocaleString("es-MX")}</span>
                 </div>
               </div>
 
               {/* Conversion Actions Block */}
-              <div className="border-t border-gray-100 pt-5 space-y-3 bg-slate-50/50 rounded-xl p-4 border">
-                <div className="flex items-center gap-1.5 text-xs font-bold text-gray-800">
-                  <RefreshCw className="h-4 w-4 text-purple-600 animate-spin-slow" />
+              <div className="border-t border-gray-100 pt-5 space-y-3 bg-slate-50/50 rounded-xl p-4 border border-slate-200">
+                <div className="flex items-center gap-1.5 text-sm font-bold text-slate-900">
+                  <RefreshCw className="h-4.5 w-4.5 text-purple-600 animate-spin-slow" />
                   <span>Conversión Directa Automática</span>
                 </div>
-                <p className="text-[11px] text-gray-400">
+                <p className="text-xs text-slate-500 leading-normal">
                   Transforma esta propuesta económica aprobada en una orden de trabajo de campo o un proyecto civil con un solo clic.
                 </p>
 
